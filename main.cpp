@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include <fstream>
 
 std::string sendMessage(std::string);
 std::string message2Encrypt(std::string);
@@ -18,34 +19,17 @@ int main() {
     bool newMessage = false;             // determines if there is incoming message
     int selection;                       // selects options in main loop
 
+    char name;
+    std::cout << "who are you? c/d";
+    std::cin >> name;
+
     do {
-        // main menu
-        std::cout << "1.) Send Message\n";
-        std::cout << "2.) Receive Message\n";
-        std::cout << "3.) Quit\n";
-        std::cout << "Enter selection: ";
-        std::cin >> selection;
 
-        switch (selection) {
-        case 1:
-            // std::cout << "Enter Message: ";
-            // std::cin >> messageSend;
-            // std::string encryptedMessageSend = encrypt(messageSend);
-            std::cout << "1\n";
-            break;
+        std::cout << "1.) Send Message: ";
+        std::cin >> messageSend;
+        std::string encryptedMessageSend = encrypt(messageSend, name);
+        std::cout << encryptedMessageSend << '\n';
 
-        case 2:
-            std::cout << "2\n";
-            break;
-
-        case 3:
-            std::cout << "3\n";
-            break;
-
-        default:
-            std::cout << "You are a dumbass.\n";
-            break;
-        }
 
     } while (selection != 3);
 
@@ -53,12 +37,30 @@ int main() {
 }
 
 // encrypts message with some sort of cipher
-std::string encrypt(std::string message2Encrypt) {
+std::string encrypt(std::string message2Encrypt, std::char name) {
 
-  std::system("clear");
-  std::system("echo "insert gpg shit here"");
+  if name == 'd';{
+    //write msg to file
+
+    //code
+
+    command = "cat sendMsg | gpg --encrypt --sign --armour -r cchap.mkb@protonmail.com --output send_caelan_msg";
+    system(command);
+    return(send_caelan_msg)
+  }
+
+  if name == 'c';{
+    //write msg to file
+
+    //code
+
+    command = "cat sendMsg | gpg --encrypt --sign --armour -r me@danfisc.us --output send_dan_msg";
+    system(command);
+    return(send_dan_msg)
+  }
+
     // some code
-
+    return("fuck");
     //return(encrypted);
 }
 
@@ -89,5 +91,5 @@ TODO:
 Interface:
 
 - basic colors for interface
-
+http://www.cplusplus.com/reference/thread/thread/
 */
