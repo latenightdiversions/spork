@@ -1,5 +1,4 @@
 // this is the main file of execution
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -12,14 +11,15 @@ std::string encrypt(std::string);
 
 int main() {
 
-    std::string messageSend; // message to be sent
-    std::string encryptedMessageSend; // encrypted message to be sent
-    std::string messageReceive; // message that is to be received
+    std::string messageSend;             // message to be sent
+    std::string encryptedMessageSend;    // encrypted message to be sent
+    std::string messageReceive;          // message that is to be received
     std::string encryptedMessageReceive; // message received and then deciphered
-    bool newMessage = false; // determines if there is incoming message
-    int selection; // selects options in main loop
+    bool newMessage = false;             // determines if there is incoming message
+    int selection;                       // selects options in main loop
 
     do {
+        // main menu
         std::cout << "1.) Send Message\n";
         std::cout << "2.) Receive Message\n";
         std::cout << "3.) Quit\n";
@@ -28,9 +28,9 @@ int main() {
 
         switch (selection) {
         case 1:
-            //    std::cout << "Enter Message: ";
-            //    std::cin >> messageSend;
-            //    std::string encryptedMessageSend = encrypt(messageSend);
+            // std::cout << "Enter Message: ";
+            // std::cin >> messageSend;
+            // std::string encryptedMessageSend = encrypt(messageSend);
             std::cout << "1\n";
             break;
 
@@ -55,6 +55,8 @@ int main() {
 // encrypts message with some sort of cipher
 std::string encrypt(std::string message2Encrypt) {
 
+  std::system("clear");
+  std::system("echo "insert gpg shit here"");
     // some code
 
     //return(encrypted);
