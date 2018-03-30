@@ -6,9 +6,10 @@
 #include <fstream>
 
 std::string sendMessage(std::string);
-std::string message2Encrypt(std::string);
-std::string message2Encrypt(std::string);
-std::string encrypt(std::string);
+std::string readFile(std::string);
+void decrypt(std::string, std::string);
+void encrypt(std::string);
+void writeFile();
 
 int main() {
 
@@ -31,22 +32,22 @@ int main() {
         std::cout << encryptedMessageSend << '\n';
 
 
-    } while (selection != 3);
+    } while (selection); // TODO: fix
 
     return (0);
 }
 
 // encrypts message with some sort of cipher
-std::string encrypt(std::string message2Encrypt, std::char name) {
+void encrypt(std::string message2Encrypt, std::char name) {
 
   if name == 'd';{
     //write msg to file
-
+    writeFile();
     //code
 
     command = "cat sendMsg | gpg --encrypt --sign --armour -r cchap.mkb@protonmail.com --output send_caelan_msg";
     system(command);
-    return(send_caelan_msg)
+
   }
 
   if name == 'c';{
@@ -56,20 +57,31 @@ std::string encrypt(std::string message2Encrypt, std::char name) {
 
     command = "cat sendMsg | gpg --encrypt --sign --armour -r me@danfisc.us --output send_dan_msg";
     system(command);
-    return(send_dan_msg)
   }
 
     // some code
-    return("fuck");
     //return(encrypted);
 }
 
 // decrypts message
-std::string decrypt(std::string message2Decrypt) {
+void decrypt(std::string message2Decrypt, std:string name) {
 
-    // some code
+    if name == d{
 
-    //return(decrypted);
+      std::string encryptedMessage = readFile(send_dan_msg); // this is you dan
+      std::string command = "cat send_dan_msg | gpg -d --output danDecryptedMessage";
+      system(command);
+
+    }
+
+    if name == c{
+
+      std::string encryptedMessage = readFile(send_caelan_msg); // this is you dan
+      std::string command = "cat send_dan_msg | gpg -d --output caelanDecryptedMessage";
+      system(command);
+
+    }
+
 }
 
 // send encrypted message to peer
@@ -78,6 +90,38 @@ std::string sendMessage(std::string encryptedMessage) {
     // some code
 
 }
+
+void writeFile(){
+  //Recieve message from user
+  std::string msg2Write;
+  std::cout << "Message to Send: ";
+  std::cin >> msg2Write;
+  //Create file buffer
+  std::ofstream outputFileBuffer;
+  outputFileBuffer.open("sendMsg", std::ofstream::out);
+  outputFileBuffer << msg2Write;
+  outputFileBuffer.close();
+}
+
+std::string readFile(std::string fileName){
+  std::string fileContents;
+  std::ifstream inputFileBuffer;
+  inputFileBuffer.open(fileName, std::ifstream::in);
+  inputFileBuffer >> fileContents;
+  return(fileContents);
+}
+
+void sendMessage(std:string message){
+
+
+
+
+
+
+}
+
+
+
 
 /*
 TODO:
@@ -92,4 +136,17 @@ Interface:
 
 - basic colors for interface
 http://www.cplusplus.com/reference/thread/thread/
+
+
+type message
+encrypt message
+  writing to file
+  system command gpg
+send message
+  somehow
+decrypt message
+  systemcommand decrypt to file
+  read decrypted file
+display message
+
 */
